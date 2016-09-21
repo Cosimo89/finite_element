@@ -33,5 +33,9 @@ def tri_p1(x,y,eval_p):
 	surf_e = 1./2. * abs(x[0]*y[2]-x[0]*y[1]+x[1]*y[0]-x[1]*y[2]+x[2]*y[1]-x[2]*y[0] )
 	return dx_phi,dy_phi,phi[0],surf_e
 
-
+x=np.array([1,2,3])
+y=np.array([2,1,4])
+eval_p=np.ones((2,2))
+ris=tri_p1(x,y,eval_p)
+print ris
 

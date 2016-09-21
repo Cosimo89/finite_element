@@ -1,8 +1,15 @@
 import numpy as np
 
-def read_msh(square.mh):
+def read_msh(filename):
 
     """ read mesh code """
+	f = open(filenamne, 'r')
+	
+	for line in f:
+		if line[0]=='$':
+			print("this is useless")
+		else:
+			print(line)
 	
 
     r_id = 0
