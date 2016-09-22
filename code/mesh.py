@@ -22,16 +22,17 @@ def read_msh(filenamne):
                 y = np.append(y,l[2])
             if len(l) == 7:
                 #boundary
-                b_nodes = np.append(b_nodes,int(l[6]))
-               # b_nodes = map(int,b_nodes)
+                b_nodes = np.append(b_nodes,l[6])
+                b_nodes = map(int,b_nodes)
             if len(l) == 8:
                 # domain
                 topo = np.append(topo,l[5:])
+                topo = map(int,topo)
             print(line)
 #Reshape topo
     topo=np.reshape(topo,(len(topo)/3,3))
     topo=topo-1
-    b_nodes=b_nodes-1
+    b_nodes=np.array(b_nodes)-1
 
 	
 #Check the elements

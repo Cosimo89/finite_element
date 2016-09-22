@@ -29,6 +29,4 @@ def f_v(topo,x,y):
         for j in range(3):
                 F[element[j]] += loc_f[j]
         
-        
-      
     return F
