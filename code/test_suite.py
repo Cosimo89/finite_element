@@ -1,6 +1,6 @@
 from __future__ import division
 import unittest
-#from mesh import *
+from mesh import *
 from basis_func import *
 from assemble import *
 import numpy as np
@@ -45,16 +45,16 @@ class BasisFuncsTest(unittest.TestCase):
         self.assertTrue(lists_almost_equal(dy_phi, [-1.,1.,0.],1))
         self.assertTrue(lists_almost_equal(phi,[0.2 ,0.7, 0.1],1))
 
-"""
+
 class MeshTest(unittest.TestCase):
     def test_read_msh(self):
         expected = np.array([ 65,129,85],dtype=np.int_)
-        topo , x , y , nodes , b_nodes = read_msh('mesh/square.msh')
+        topo , x , y , b_nodes = read_msh('mesh/square.msh')
         result = topo[10,:]
         self.assertItemsEqual(result, expected)
-        self.assertItemsEqual(b_nodes[:5], [0,4,5,6,7])
+        self.assertItemsEqual(b_nodes[:5], [4,5,6,7,8])
         # assertCountEqual for python 3
-
+'''
 class AssembleTest(unittest.TestCase):
     def test_assemble(self):
         #topo , x , y , nodes , b_nodes = read_msh('mesh/square.msh')
@@ -71,6 +71,6 @@ class AssembleTest(unittest.TestCase):
         self.assertTrue(truth)
         #self.assertItemsEqual(result, expected)
         #self.assertItemsEqual(b_nodes[:5], [0,4,5,6,7])
-"""
+'''
 if __name__ == "__main__":
     unittest.main()

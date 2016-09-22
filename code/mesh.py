@@ -7,7 +7,6 @@ def read_msh(filenamne):
     y = np.array([])
     b_nodes= np.array([])
     topo= np.array([])
-    nodes=np.array([])
 
     """ read mesh code """
     f = open(filenamne, 'r')
@@ -23,12 +22,16 @@ def read_msh(filenamne):
                 y = np.append(y,l[2])
             if len(l) == 7:
                 #boundary
-                b_nodes = np.append(b_nodes,l[6])
-                b_nodes = map(int,b_nodes)
+                b_nodes = np.append(b_nodes,int(l[6]))
+               # b_nodes = map(int,b_nodes)
             if len(l) == 8:
                 # domain
-                topo = np.append(topo,l[5],l[6],l[7])
+                topo = np.append(topo,l[5:])
             print(line)
+#Reshape topo
+    topo=np.reshape(topo,(len(topo)/3,3))
+    topo=topo-1
+    b_nodes=b_nodes-1
 
 	
 #Check the elements
@@ -41,6 +44,6 @@ def read_msh(filenamne):
         r_id+=1
 
     print r_id
-    return topo , x , y , nodes , b_nodes
+    return topo , x , y , b_nodes
 
 
