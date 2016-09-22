@@ -6,7 +6,7 @@ from assemble import *
 
 from viewer import *
 
-def clear_rows(A,b_nodes,f):
+def clear_rows(A,b_nodes,F):
     """ code to clera rows """
 
     d=np.diag(A)
@@ -15,7 +15,13 @@ def clear_rows(A,b_nodes,f):
     A[b_nodes,:]=0
     A=A+B
     f[b_nodes]=0
-    return A,f
+    return A,F
 
 if __name__ == "__main__":
     read_msh(/mesh/square.msh)
+    gradu_gradv(topo,x,y)
+    f_v(topo,x,y)
+    clear_rows(A,F)
+    sol=np.linalgsolve(A,F)
+    plot_sol_p1(x,y,sol,topo)
+   
