@@ -1,17 +1,22 @@
 import numpy as np
 
-def read_msh(filename):
+def read_msh(filenamne):
+
+    x = np.array([])
+    y = np.array([])
+
 
     """ read mesh code """
-	f = open(filenamne, 'r')
+    f = open(filenamne, 'r')
+#Salta le righe con il dollaro	
+    for line in f:
+        if line[0]=='$':
+            print("this is useless")
+        else:
+            print(line)
+#
 	
-	for line in f:
-		if line[0]=='$':
-			print("this is useless")
-		else:
-			print(line)
-	
-
+#controllo elementi 
     r_id = 0
     for row in topo:
         ck =      (x[row[1]]-x[row[0]])*(y[row[2]]-y[row[0]])
